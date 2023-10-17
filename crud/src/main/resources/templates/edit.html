@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Crud - Index</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- navbar start here -->
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/" style="font-size: 20px;">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/add" style="font-size: 20px;">Add</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/edit" style="font-size: 20px;">Edit</a>
+            </li>  
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- navbar ends here -->
+
+
+    <div class="container col-md-6 mt-5">
+      <div class="row">
+        <div class="card">
+          <div class="card-header">
+              <h1 class="text-center">Product Update form</h1>
+          </div>
+          <div class="card-body">
+            <form th:action="@{/update}" method="post">
+
+              <input type="hidden" th:value="${product.id}" name="id">
+
+              <div class="mb-3">
+                <label for="product" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="product" aria-describedby="emailHelp" name="product" th:value="${product.product}">
+              </div>
+              <div class="mb-3">
+                <label for="Description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="Description" aria-describedby="emailHelp" name="description" th:value="${product.description}">
+              </div>
+              <div class="mb-3">
+                <label for="Price" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price" aria-describedby="emailHelp" name="price" th:value="${product.price}">
+              </div>
+              <div class="mb-3">
+                <label for="Quantity" class="form-label">Quantity</label>
+                <input type="text" class="form-control" id="Quantity" aria-describedby="emailHelp" name="quantity" th:value="${product.quantity}">
+              </div>
+              <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
